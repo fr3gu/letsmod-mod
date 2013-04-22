@@ -1,0 +1,20 @@
+[
+{
+	"modid": "LetsMod",
+	"name": "Let's Mod!",
+	"description": "Descr...",
+	"version": "0.0.1",
+	"url": "http://github.com/fr3gu/letsmod-mod",
+	"updateUrl": "",
+	"authorList": [
+		"Fr3gU"
+	],
+	"credits": "Fr3gU, thanks to Pahimar",
+	"logoFile" : "/mods/letsmod/textures/log/logo.png",
+	"screenshots" : [
+	],
+	"parent": "",
+	"dependencies": [
+	],
+}
+]
