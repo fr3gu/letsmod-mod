@@ -29,26 +29,26 @@
 	</target>
 	
 	<target name="recompile">
-		<exec dir="mcp" executable="cmd" osfamily="windows">
+		<exec dir="${agent.work.dir}\mc\minecraft_dir\mcp" executable="cmd" osfamily="windows">
 			<arg line="/c recompile.bat" />
 		</exec>
-		<exec dir="mcp" executable="bash" osfamily="unix">
+		<exec dir="${agent.work.dir}\mc\minecraft_dir\mcp" executable="bash" osfamily="unix">
 			<arg line="recompile.sh" />
 		</exec>
 	</target>
 	
 	<target name="reobfuscate">
-		<exec dir="mcp" executable="cmd" osfamily="windows">
+		<exec dir="${agent.work.dir}\mc\minecraft_dir\mcp" executable="cmd" osfamily="windows">
 			<arg line="/c reobfuscate_srg.bat" />
 		</exec>
-		<exec dir="mcp" executable="bash" osfamily="unix">
+		<exec dir="${agent.work.dir}\mc\minecraft_dir\mcp" executable="bash" osfamily="unix">
 			<arg line="reobfuscate_srg.sh" />
 		</exec>
 	</target>
 	
-	<target name="sign_jar">
+	<!--<target name="sign_jar">
 		<signjar jar="${agent.work.dir}\mc\minecraft_dir\release\1.5.1\0.0.1\lmm-universal-0.0.1-${build.number}.jar" keystore="${build.keystore.location}" alias="${build.keystore.alias}" storepass="${build.keystore.password}" />
-	</target>
+	</target>-->
 	
 	<target name="build">
 		<!-- Prep for the build -->
