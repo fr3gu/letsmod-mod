@@ -17,8 +17,8 @@
 	</target>
 	
 	<target name="prep">
-		<copy todir="mcp\src\minecraft">
-			<fileset dir="source\LetsMod-Mod\letsmod_common\" />
+		<copy todir="${agent.work.dir}\mcp\src\minecraft">
+			<fileset dir="${agent.work.dir}\source\LetsMod-Mod\letsmod_common\" />
 		</copy>
 	</target>
 	
