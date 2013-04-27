@@ -18,7 +18,7 @@
 	
 	<target name="prep">
 		<copy todir="${agent.work.dir}\mc\minecraft_dev\mcp\src\minecraft">
-			<fileset dir="${agent.work.dir}\mc\minecraft_dev\source\LetsMod-Mod\letsmod_common\" />
+			<fileset dir="${agent.work.dir}\mc\minecraft_dev\source\LetsMod_Mod\letsmod_common\" />
 		</copy>
 	</target>
 	
@@ -63,7 +63,7 @@
 		<jar destfile="${agent.work.dir}\mc\minecraft_dir\release\1.5.1\0.0.1\lmm-universal-0.0.1-${build.number}.jar">
 			<fileset dir="${agent.work.dir}\mc\minecraft_dir\mcp\src\minecraft\" includes="mcmod.info" />
 			<fileset dir="${agent.work.dir}\mc\minecraft_dir\mcp\reobf\minecraft" />
-			<fileset dir="${agent.work.dir}\mc\minecraft_dir\source\LetsMod-Mod\resources" excludes="**/xcf/**" />
+			<fileset dir="${agent.work.dir}\mc\minecraft_dir\source\LetsMod_Mod\resources" excludes="**/xcf/**" />
 		</jar>
 		
 		<!-- Clean up the MCP source now that we are done -->
@@ -84,7 +84,7 @@
 		<jar destfile="${agent.work.dir}\mc\minecraft_dir\release\1.5.1\0.0.1\lmm-universal-0.0.1-${build_number.build_number}.jar">
 			<fileset dir="${agent.work.dir}\mc\minecraft_dir\mcp\src\minecraft\" includes="mcmod.info" />
 			<fileset dir="${agent.work.dir}\mc\minecraft_dir\mcp\reobf\minecraft" />
-			<fileset dir="${agent.work.dir}\mc\minecraft_dir\source\LetsMod-Mod\resources" excludes="**/xcf/**" />
+			<fileset dir="${agent.work.dir}\mc\minecraft_dir\source\LetsMod_Mod\resources" excludes="**/xcf/**" />
 		</jar>
 		
 		<!-- Sign the finished jar -->
