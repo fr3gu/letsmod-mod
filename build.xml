@@ -5,9 +5,9 @@
 	<property file="build_number.properties" prefix="build_number"/>
 	
 	<target name="clean">
-		<delete file="$mcp\src\minecraft\mcmod.info" />
-		<delete dir="$mcp\src\minecraft\com\fr3gu" />
-		<delete dir="$mcp\reobf\minecraft" />
+		<delete file="${agent.work.dir}\mc\minecraft_dev\mcp\src\minecraft\mcmod.info" />
+		<delete dir="${agent.work.dir}\mc\minecraft_dev\mcp\src\minecraft\com\fr3gu" />
+		<delete dir="${agent.work.dir}\mc\minecraft_dev\mcp\reobf\minecraft" />
 	</target>
 	
 	<target name="increment_build_number">
@@ -17,15 +17,15 @@
 	</target>
 	
 	<target name="prep">
-		<copy todir="${agent.work.dir}\mcp\src\minecraft">
-			<fileset dir="${agent.work.dir}\source\LetsMod-Mod\letsmod_common\" />
+		<copy todir="${agent.work.dir}\mc\minecraft_dev\mcp\src\minecraft">
+			<fileset dir="${agent.work.dir}\mc\minecraft_dev\source\LetsMod-Mod\letsmod_common\" />
 		</copy>
 	</target>
 	
 	<target name="replace_tokens">
-		<replace dir="mcp\src\minecraft" token="@VERSION@" value="${build.release.mod.version}" />
-		<replace dir="mcp\src\minecraft" token="@FINGERPRINT@" value="${build.release.mod.fingerprint}" />
-		<replace dir="mcp\src\minecraft" token="@BUILD_NUMBER@" value="${build_number.build_number}" />
+		<replace dir="${agent.work.dir}\mc\minecraft_dev\mcp\src\minecraft" token="@VERSION@" value="${build.release.mod.version}" />
+		<replace dir="${agent.work.dir}\mc\minecraft_dev\mcp\src\minecraft" token="@FINGERPRINT@" value="${build.release.mod.fingerprint}" />
+		<replace dir="${agent.work.dir}\mc\minecraft_dev\mcp\src\minecraft" token="@BUILD_NUMBER@" value="${build.number}" />
 	</target>
 	
 	<target name="recompile">
@@ -47,7 +47,7 @@
 	</target>
 	
 	<target name="sign_jar">
-		<signjar jar="..\release\1.5.1\0.0.1\lmm-universal-0.0.1-${build_number.build_number}.jar" keystore="${build.keystore.location}" alias="${build.keystore.alias}" storepass="${build.keystore.password}" />
+		<signjar jar="${agent.work.dir}\mc\minecraft_dir\release\1.5.1\0.0.1\lmm-universal-0.0.1-${build.number}.jar" keystore="${build.keystore.location}" alias="${build.keystore.alias}" storepass="${build.keystore.password}" />
 	</target>
 	
 	<target name="build">
@@ -59,11 +59,11 @@
 		<antcall target="reobfuscate" />
 		
 		<!-- Build the jar -->
-		<mkdir dir="..\release\1.5.1\0.0.1" />
-		<jar destfile="..\release\1.5.1\0.0.1\lmm-universal-0.0.1-${build_number.build_number}.jar">
-			<fileset dir="mcp\src\minecraft\" includes="mcmod.info" />
-			<fileset dir="mcp\reobf\minecraft" />
-			<fileset dir="source\LetsMod-Mod\resources" excludes="**/xcf/**" />
+		<mkdir dir="${agent.work.dir}\mc\minecraft_dirrelease\1.5.1\0.0.1" />
+		<jar destfile="${agent.work.dir}\mc\minecraft_dir\release\1.5.1\0.0.1\lmm-universal-0.0.1-${build.number}.jar">
+			<fileset dir="${agent.work.dir}\mc\minecraft_dir\mcp\src\minecraft\" includes="mcmod.info" />
+			<fileset dir="${agent.work.dir}\mc\minecraft_dir\mcp\reobf\minecraft" />
+			<fileset dir="${agent.work.dir}\mc\minecraft_dir\source\LetsMod-Mod\resources" excludes="**/xcf/**" />
 		</jar>
 		
 		<!-- Clean up the MCP source now that we are done -->
@@ -80,11 +80,11 @@
 		<antcall target="reobfuscate" />
 		
 		<!-- Build the jar -->
-		<mkdir dir="..\release\1.5.1\0.0.1" />
-		<jar destfile="..\release\1.5.1\0.0.1\lmm-universal-0.0.1-${build_number.build_number}.jar">
-			<fileset dir="mcp\src\minecraft\" includes="mcmod.info" />
-			<fileset dir="mcp\reobf\minecraft" />
-			<fileset dir="source\LetsMod-Mod\resources" excludes="**/xcf/**" />
+		<mkdir dir="${agent.work.dir}\mc\minecraft_dir\release\1.5.1\0.0.1" />
+		<jar destfile="${agent.work.dir}\mc\minecraft_dir\release\1.5.1\0.0.1\lmm-universal-0.0.1-${build_number.build_number}.jar">
+			<fileset dir="${agent.work.dir}\mc\minecraft_dir\mcp\src\minecraft\" includes="mcmod.info" />
+			<fileset dir="${agent.work.dir}\mc\minecraft_dir\mcp\reobf\minecraft" />
+			<fileset dir="${agent.work.dir}\mc\minecraft_dir\source\LetsMod-Mod\resources" excludes="**/xcf/**" />
 		</jar>
 		
 		<!-- Sign the finished jar -->
