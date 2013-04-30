@@ -2,7 +2,7 @@
 {
 	"modid": "LetsMod",
 	"name": "Let's Mod!",
-	"description": "Description...",
+	"description": "The description...",
 	"version": "0.0.1",
 	"url": "http://github.com/fr3gu/letsmod-mod",
 	"updateUrl": "",
