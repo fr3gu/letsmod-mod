@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-[
-{
-	"modid": "LetsMod",
-	"name": "Let's Mod!",
-	"description": "The description...",
-	"version": "0.0.1",
-	"url": "http://github.com/fr3gu/letsmod-mod",
-	"updateUrl": "",
-	"authorList": [
-		"Fr3gU"
-	],
-	"credits": "Fr3gU, thanks to Pahimar",
-	"logoFile" : "/mods/letsmod/textures/log/logo.png",
-	"screenshots" : [
-	],
-	"parent": "",
-	"dependencies": [
-	],
-}
-=======
 [
 {
 	"modid": "LetsMod",
@@ -38,5 +17,4 @@
 	"dependencies": [
 	]
 }
->>>>>>> Updated for 1.6 and extended mod class
 ]

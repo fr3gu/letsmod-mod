@@ -3,7 +3,9 @@ package com.fr3gu.letsmod;
 import java.io.File;
 
 import com.fr3gu.letsmod.configuration.ConfigurationHandler;
+import com.fr3gu.letsmod.core.handlers.LocalizationHandler;
 import com.fr3gu.letsmod.core.proxy.CommonProxy;
+import com.fr3gu.letsmod.item.ModItems;
 import com.fr3gu.letsmod.lib.Reference;
 import com.fr3gu.letsmod.network.PacketHandler;
 
@@ -34,14 +36,16 @@ public class LetsMod {
 				+ File.separator
 				+ Reference.CHANNEL_NAME
 				+ File.separator + Reference.MOD_ID + ".cfg"));
-		System.out.println(ConfigurationHandler.SomeTextValue);
+		
+		ModItems.init();
+		ModItems.registerRecipes();
         proxy.initSounds();
         proxy.initRenderers();
     }
     
 	@EventHandler
     public void init(FMLInitializationEvent event) {
-        
+        LocalizationHandler.loadLanguages();
     }
     
 	@EventHandler
