@@ -21,9 +21,11 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @SuppressWarnings("unused")
 public class ModItems {
 	public static Item wand;
+	public static Item card;
 	
 	public static void init() {
 		wand = new ItemWand(ItemIds.WAND_ID);
+		card = new ItemCard(ItemIds.CARD_ID);
 		
 	}
 	

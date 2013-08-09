@@ -3,5 +3,8 @@
 <properties version="1.0">
 	<comment>English (en_US) Localization File</comment>
 	<entry key="item.rocketWand.name">Wand of the Rocket</entry>
+	<entry key="item.cardArrow.name">Arrow Card</entry>
+	<entry key="item.cardBorder.name">Border Card</entry>
+	<entry key="item.cardCross.name">Cross Card</entry>
 	<entry key="itemGroup.LetsMod">LetsMod-Mod</entry>
 </properties>
