@@ -2,6 +2,7 @@ package com.fr3gu.letsmod;
 
 import java.io.File;
 
+import com.fr3gu.letsmod.block.ModBlocks;
 import com.fr3gu.letsmod.configuration.ConfigurationHandler;
 import com.fr3gu.letsmod.core.handlers.LocalizationHandler;
 import com.fr3gu.letsmod.core.proxy.CommonProxy;
@@ -38,8 +39,10 @@ public class LetsMod {
 				+ File.separator + Reference.MOD_ID + ".cfg"));
 		
 		ModItems.init();
-		ModItems.registerRecipes();
-        proxy.initSounds();
+		
+		ModBlocks.init();
+		
+		proxy.initSounds();
         proxy.initRenderers();
     }
     

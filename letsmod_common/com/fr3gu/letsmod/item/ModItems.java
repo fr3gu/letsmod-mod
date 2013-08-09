@@ -4,10 +4,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import com.fr3gu.letsmod.lib.ItemIds;
-import com.fr3gu.letsmod.lib.Strings;
-
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 /**
  * Lets Mod-Mod
@@ -18,24 +15,21 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  * 
  */
-@SuppressWarnings("unused")
 public class ModItems {
 	public static Item wand;
 	public static Item card;
+	
 	
 	public static void init() {
 		wand = new ItemWand(ItemIds.WAND_ID);
 		card = new ItemCard(ItemIds.CARD_ID);
 		
+		initItemRecipes();
 	}
 	
-//	public static void addNames() {
-//		LanguageRegistry.addName(wand, Strings.WAND_NAME);
-//	}
-	
-	public static void registerRecipes() {
+	public static void initItemRecipes() {
 		GameRegistry.addRecipe(new ItemStack(wand),
-				new Object[] { "  X"," / ","/  ", Character.valueOf('X'), Item.goldenCarrot,Character.valueOf('/'),Item.stick});
+				new Object[] { "  c"," s ","s  ", Character.valueOf('c'), Item.goldenCarrot, Character.valueOf('s'), Item.stick});
 	}
 
 }

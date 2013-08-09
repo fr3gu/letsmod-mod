@@ -6,5 +6,9 @@
 	<entry key="item.cardArrow.name">Arrow Card</entry>
 	<entry key="item.cardBorder.name">Border Card</entry>
 	<entry key="item.cardCross.name">Cross Card</entry>
+	<entry key="tile.machineNormal.name">Machine</entry>
+	<entry key="tile.machineArrow.name">Arrow Machine</entry>
+	<entry key="tile.machineBorder.name">Border Machine</entry>
+	<entry key="tile.machineCross.name">Cross Machine</entry>
 	<entry key="itemGroup.LetsMod">LetsMod-Mod</entry>
 </properties>
