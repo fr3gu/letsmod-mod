@@ -9,6 +9,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
@@ -151,5 +152,11 @@ public class BlockMachine extends BlockLMM {
 		if(world.isAirBlock(x,  y, z)) {
 			world.setBlock(x, y, z, Block.anvil.blockID);
 		}
+	}
+
+	@Override
+	public TileEntity createNewTileEntity(World world) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

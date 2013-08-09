@@ -1,5 +1,14 @@
 package com.fr3gu.letsmod.lib;
 
+/**
+ * Lets Mod-Mod
+ * 
+ * Strings
+ * 
+ * @author fr3gu
+ * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
+ * 
+ */
 public class Strings {
 	public static final String WAND_KEY = "Wand";
 	public static final String WAND_NAME = "rocketWand";
@@ -16,4 +25,11 @@ public class Strings {
 	public static final String MACHINE_SIDE = "machine_side";
 	public static final String MACHINE_DISABLED = "machine_disabled";
 	public static final String[] MACHINE_SIDES = { "Normal", "Arrow", "Border", "Cross" };
+	
+	public static final String BOMB_KEY = "Bomb";
+	public static final String BOMB_NAME = "weirdBomb";
+	public static final String BOMB_TEXTURE = "bomb";
+	public static final String BOMB_IDLE_TEXTURE = "bomb_idle";
+	public static final String BOMB_TE_KEY = "bombTileEntity";
+	
 }

@@ -10,5 +10,6 @@
 	<entry key="tile.machineArrow.name">Arrow Machine</entry>
 	<entry key="tile.machineBorder.name">Border Machine</entry>
 	<entry key="tile.machineCross.name">Cross Machine</entry>
+	<entry key="tile.weirdBomb.name">Weird Bomb</entry>
 	<entry key="itemGroup.LetsMod">LetsMod-Mod</entry>
 </properties>
