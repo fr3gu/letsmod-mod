@@ -5,9 +5,9 @@
 	<property file="build_number.properties" prefix="build_number"/>
 	
 	<target name="clean">
-		<delete file="${agent.work.dir}\mc\minecraft_dev\mcp\src\minecraft\mcmod.info" />
-		<delete dir="${agent.work.dir}\mc\minecraft_dev\mcp\src\minecraft\com\fr3gu" />
-		<delete dir="${agent.work.dir}\mc\minecraft_dev\mcp\reobf\minecraft" />
+		<delete file="${agent.work.dir}\mc\minecraft_dev\mcp_162\src\minecraft\mcmod.info" />
+		<delete dir="${agent.work.dir}\mc\minecraft_dev\mcp_162\src\minecraft\com\fr3gu" />
+		<delete dir="${agent.work.dir}\mc\minecraft_dev\mcp_162\reobf\minecraft" />
 	</target>
 	
 	<target name="increment_build_number">
@@ -17,37 +17,37 @@
 	</target>
 	
 	<target name="prep">
-		<copy todir="${agent.work.dir}\mc\minecraft_dev\mcp\src\minecraft">
+		<copy todir="${agent.work.dir}\mc\minecraft_dev\mcp_162\src\minecraft">
 			<fileset dir="${agent.work.dir}\mc\minecraft_dev\source\LetsMod_Mod\letsmod_common\" />
 		</copy>
 	</target>
 	
 	<target name="replace_tokens">
-		<replace dir="${agent.work.dir}\mc\minecraft_dev\mcp\src\minecraft" token="@VERSION@" value="${build.release.mod.version}" />
-		<replace dir="${agent.work.dir}\mc\minecraft_dev\mcp\src\minecraft" token="@FINGERPRINT@" value="${build.release.mod.fingerprint}" />
-		<replace dir="${agent.work.dir}\mc\minecraft_dev\mcp\src\minecraft" token="@BUILD_NUMBER@" value="${build.number}" />
+		<replace dir="${agent.work.dir}\mc\minecraft_dev\mcp_162\src\minecraft" token="@VERSION@" value="${build.release.mod.version}" />
+		<replace dir="${agent.work.dir}\mc\minecraft_dev\mcp_162\src\minecraft" token="@FINGERPRINT@" value="${build.release.mod.fingerprint}" />
+		<replace dir="${agent.work.dir}\mc\minecraft_dev\mcp_162\src\minecraft" token="@BUILD_NUMBER@" value="${build.number}" />
 	</target>
 	
 	<target name="recompile">
-		<exec dir="${agent.work.dir}\mc\minecraft_dev\mcp" executable="cmd" osfamily="windows">
+		<exec dir="${agent.work.dir}\mc\minecraft_dev\mcp_162" executable="cmd" osfamily="windows">
 			<arg line="/c recompile.bat" />
 		</exec>
-		<exec dir="${agent.work.dir}\mc\minecraft_dev\mcp" executable="bash" osfamily="unix">
+		<exec dir="${agent.work.dir}\mc\minecraft_dev\mcp_162" executable="bash" osfamily="unix">
 			<arg line="recompile.sh" />
 		</exec>
 	</target>
 	
 	<target name="reobfuscate">
-		<exec dir="${agent.work.dir}\mc\minecraft_dev\mcp" executable="cmd" osfamily="windows">
+		<exec dir="${agent.work.dir}\mc\minecraft_dev\mcp_162" executable="cmd" osfamily="windows">
 			<arg line="/c reobfuscate_srg.bat" />
 		</exec>
-		<exec dir="${agent.work.dir}\mc\minecraft_dev\mcp" executable="bash" osfamily="unix">
+		<exec dir="${agent.work.dir}\mc\minecraft_dev\mcp_162" executable="bash" osfamily="unix">
 			<arg line="reobfuscate_srg.sh" />
 		</exec>
 	</target>
 	
 	<!--<target name="sign_jar">
-		<signjar jar="${agent.work.dir}\mc\minecraft_dev\release\1.5.1\0.0.1\lmm-universal-0.0.1-${build.number}.jar" keystore="${build.keystore.location}" alias="${build.keystore.alias}" storepass="${build.keystore.password}" />
+		<signjar jar="${agent.work.dir}\mc\minecraft_dev\release\1.6.2\0.0.1\lmm-universal-0.0.1-${build.number}.jar" keystore="${build.keystore.location}" alias="${build.keystore.alias}" storepass="${build.keystore.password}" />
 	</target>-->
 	
 	<target name="build">
@@ -59,10 +59,10 @@
 		<antcall target="reobfuscate" />
 		
 		<!-- Build the jar -->
-		<mkdir dir="${agent.work.dir}\mc\minecraft_dev\release\1.5.1\0.0.1" />
-		<jar destfile="${agent.work.dir}\mc\minecraft_dev\release\1.5.1\0.0.1\lmm-universal-0.0.1-${build.number}.jar">
-			<fileset dir="${agent.work.dir}\mc\minecraft_dev\mcp\src\minecraft\" includes="mcmod.info" />
-			<fileset dir="${agent.work.dir}\mc\minecraft_dev\mcp\reobf\minecraft" />
+		<mkdir dir="${agent.work.dir}\mc\minecraft_dev\release\1.6.1\0.0.1" />
+		<jar destfile="${agent.work.dir}\mc\minecraft_dev\release\1.6.2\0.0.1\lmm-universal-0.0.1-${build.number}.jar">
+			<fileset dir="${agent.work.dir}\mc\minecraft_dev\mcp_162\src\minecraft\" includes="mcmod.info" />
+			<fileset dir="${agent.work.dir}\mc\minecraft_dev\mcp_162\reobf\minecraft" />
 			<fileset dir="${agent.work.dir}\mc\minecraft_dev\source\LetsMod_Mod\resources" excludes="**/xcf/**" />
 		</jar>
 		
@@ -80,10 +80,10 @@
 		<antcall target="reobfuscate" />
 		
 		<!-- Build the jar -->
-		<mkdir dir="${agent.work.dir}\mc\minecraft_dev\release\1.5.1\0.0.1" />
-		<jar destfile="${agent.work.dir}\mc\minecraft_dev\release\1.5.1\0.0.1\lmm-universal-0.0.1-${build_number.build_number}.jar">
-			<fileset dir="${agent.work.dir}\mc\minecraft_dev\mcp\src\minecraft\" includes="mcmod.info" />
-			<fileset dir="${agent.work.dir}\mc\minecraft_dev\mcp\reobf\minecraft" />
+		<mkdir dir="${agent.work.dir}\mc\minecraft_dev\release\1.6.2\0.0.1" />
+		<jar destfile="${agent.work.dir}\mc\minecraft_dev\release\1.6.2\0.0.1\lmm-universal-0.0.1-${build_number.build_number}.jar">
+			<fileset dir="${agent.work.dir}\mc\minecraft_dev\mcp_162\src\minecraft\" includes="mcmod.info" />
+			<fileset dir="${agent.work.dir}\mc\minecraft_dev\mcp_162\reobf\minecraft" />
 			<fileset dir="${agent.work.dir}\mc\minecraft_dev\source\LetsMod_Mod\resources" excludes="**/xcf/**" />
 		</jar>
 		

@@ -15,11 +15,15 @@ import com.fr3gu.letsmod.lib.BlockIds;
  * 
  */
 public class TileBomb extends TileEntity {
+	
+	private static final int SPREAD_TIME = 5;
+	private static final int SPREAD_LEVELS = 30;
+	
 	private int timer;
 	private int level;
 	
 	public TileBomb() {
-		timer = 100;
+		timer = SPREAD_TIME;
 		level = 0;
 	}
 	
@@ -30,13 +34,16 @@ public class TileBomb extends TileEntity {
 	@Override
 	public void updateEntity() {
 		if(!worldObj.isRemote) {
-			if(timer == 0) {
+			if(timer == 0 && level < SPREAD_LEVELS) {
 				spread(xCoord + 1, yCoord, zCoord);
 				spread(xCoord - 1, yCoord, zCoord);
 				spread(xCoord, yCoord, zCoord + 1);
 				spread(xCoord, yCoord, zCoord - 1);
 				//worldObj.addBlockEvent(xCoord, yCoord, zCoord, BlockIds.BOMB_ID, 1, 0);
 				worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, 1, 3);
+			}
+			else if (timer == SPREAD_TIME * (level - SPREAD_LEVELS)) {
+				worldObj.createExplosion(null, xCoord + 0.5, yCoord + 0.5, zCoord + 0.5, 4, true);
 			}
 			timer--;
 		}		

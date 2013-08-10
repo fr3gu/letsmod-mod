@@ -1,5 +1,7 @@
 package com.fr3gu.letsmod.block;
 
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -54,5 +56,10 @@ public class BlockBomb extends BlockLMM {
     public TileEntity createNewTileEntity(World world) {
         return new TileBomb();
     }
+	
+	@Override
+	public int idDropped(int meta, Random random, int fortune) {
+		return -1;
+	}
 	
 }
