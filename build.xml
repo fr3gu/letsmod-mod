@@ -59,7 +59,7 @@
 		<antcall target="reobfuscate" />
 		
 		<!-- Build the jar -->
-		<mkdir dir="${agent.work.dir}\mc\minecraft_dev\release\1.6.1\0.0.1" />
+		<mkdir dir="${agent.work.dir}\mc\minecraft_dev\release\1.6.2\0.0.1" />
 		<jar destfile="${agent.work.dir}\mc\minecraft_dev\release\1.6.2\0.0.1\lmm-universal-0.0.1-${build.number}.jar">
 			<fileset dir="${agent.work.dir}\mc\minecraft_dev\mcp_162\src\minecraft\" includes="mcmod.info" />
 			<fileset dir="${agent.work.dir}\mc\minecraft_dev\mcp_162\reobf\minecraft" />
