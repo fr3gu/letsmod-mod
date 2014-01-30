@@ -8,7 +8,9 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import net.minecraft.world.World;
 
+import com.fr3gu.letsmod.entity.EntitySpaceship;
 import com.fr3gu.letsmod.lib.Reference;
 import com.fr3gu.letsmod.lib.Strings;
 
@@ -39,8 +41,7 @@ public class ItemWand extends ItemLMM {
 			}
 			else {
 				itemStack.setItemDamage(itemStack.getItemDamage() + 1);
-			}
-			
+			}			
 		}
 		
 		return false;
@@ -73,6 +74,26 @@ public class ItemWand extends ItemLMM {
 	}
 	
 	private boolean isCharged(int dmg) {
-		return dmg >= 10;
+		return dmg >= Reference.WAND_CHARGED_THRESHOLD;
+	}
+	
+	@Override
+	public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+		if(!world.isRemote && player.isSneaking()) {
+			EntitySpaceship spaceship = new EntitySpaceship(world, x, y, z);
+			
+			if(isCharged(stack.getItemDamage())) {
+				spaceship.setChargedState(true);
+				stack.setItemDamage(0);				
+			}
+			else {
+				stack.setItemDamage(stack.getItemDamage() + 1);
+			}
+			
+			world.spawnEntityInWorld(spaceship);
+						
+			return true;
+		}
+		return false;
 	}
 }

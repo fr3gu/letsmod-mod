@@ -8,4 +8,5 @@ public class Reference {
     public static final String SERVER_PROXY_CLASS = "com.fr3gu.letsmod.core.proxy.CommonProxy";
 	public static final String CLIENT_PROXY_CLASS = "com.fr3gu.letsmod.core.proxy.ClientProxy";
 	public static final int SHIFTED_ID_RANGE_CORRECTION = 256;
+	public static final int WAND_CHARGED_THRESHOLD = 10;
 }

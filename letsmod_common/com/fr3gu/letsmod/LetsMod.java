@@ -6,6 +6,7 @@ import com.fr3gu.letsmod.block.ModBlocks;
 import com.fr3gu.letsmod.configuration.ConfigurationHandler;
 import com.fr3gu.letsmod.core.handlers.LocalizationHandler;
 import com.fr3gu.letsmod.core.proxy.CommonProxy;
+import com.fr3gu.letsmod.entity.ModEntities;
 import com.fr3gu.letsmod.item.ModItems;
 import com.fr3gu.letsmod.lib.Reference;
 import com.fr3gu.letsmod.network.PacketHandler;
@@ -50,6 +51,8 @@ public class LetsMod {
 		ModItems.init();
 		
 		ModBlocks.init();
+		
+		ModEntities.init();
 		
 		proxy.initSounds();
         proxy.initRenderers();
